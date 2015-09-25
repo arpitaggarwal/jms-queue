@@ -35,6 +35,14 @@ Check if listener started as follows:
 ps -ef | grep qmq.listener
 ```
 
+To get the message, Change into the MQ_INSTALLATION_PATH/samp/bin directory and execute the commands:
+
+```bash
+cd /opt/mqm/samp/bin/
+./amqsget QUEUE1 QMA
+```
+
+
 
 References : 
 
