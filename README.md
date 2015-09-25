@@ -7,8 +7,8 @@ JMS Application to send messages to Websphere MQ using Queue
 crtmqm QMA
 ```
 
-2. Use ```strmqm`` command to start the queue manager QMA as follow:
-```bash 
+2. Use ```strmqm``` command to start the queue manager QMA as follow:
+```strmqm 
 crtmqm QMA
 ```
 
