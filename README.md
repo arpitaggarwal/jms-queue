@@ -12,6 +12,15 @@ Use ```strmqm``` command to start the queue manager QMA as follow:
 strmqm QMA
 ```
 
+Start MQSC to disable the **```CHLAUTH```** of a Queue Manager(QMGR) then stop MQSC as follows:
+
+```bash 
+runmqsc QMA
+ALTER QMGR CHLAUTH(DISABLED)
+end
+```
+
+
 Start MQSC to define a local queue called QUEUE1 then stop MQSC as follows:
 
 ```bash 
