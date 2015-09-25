@@ -13,12 +13,13 @@
 </head>
 <title>JMS Application | Queue Example</title>
 <body>
-	<div data-ng-app="jmsapp" data-ng-controller="MessageController">
+	<div data-ng-app="jmsapp" data-ng-controller="MessageController"
+		data-ng-init="showResult = false">
 		<form>
 			<table>
 				<tr>
 					<td>Message:</td>
-					<td><input type="text"
+					<td><input type="text" data-ng-change="showResult = false"
 						data-ng-model="sendMessageFormData.message" /></td>
 				</tr>
 				<tr>
@@ -26,7 +27,7 @@
 				</tr>
 			</table>
 		</form>
-		<div id="results">{{result}}</div>
+		<div data-ng-if="showResult" id="results">Status : {{result}}</div>
 	</div>
 </body>
 </html>

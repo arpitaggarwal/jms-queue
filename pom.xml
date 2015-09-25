@@ -51,7 +51,6 @@
 			<artifactId>jackson-core</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
-		<!-- Logging Dependencies - START -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -67,7 +66,6 @@
 			<artifactId>logback-core</artifactId>
 			<version>${logback.version}</version>
 		</dependency>
-		<!-- Logging Dependencies - END -->
 	</dependencies>
 	<build>
 		<finalName>jms-queue</finalName>

@@ -12,6 +12,9 @@ jmsapp.controller('MessageController', function($scope, $http) {
 				'Content-Type' : 'application/json'
 			},
 			data : $scope.sendMessageFormData,
+		}).success(function(data) {
+			$scope.showResult = true;
+			$scope.result = data.result;
 		});
 	};
 });

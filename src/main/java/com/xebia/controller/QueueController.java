@@ -16,25 +16,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xebia.domain.Message;
+import com.xebia.domain.Response;
 
 @RestController
 public class QueueController {
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(QueueController.class);
 	private static final String JMS_CONNECTION_FACTORY = "java:comp/env/jmsConnectionFactory";
 	private static final String QUEUE = "java:comp/env/jndi/myQueue";
-	private static final String SUCCESS = "success";
-	private static final String FAILED = "failed";
+	private static final String SUCCESS = "Sent";
+	private static final String FAILED = "Failed";
 
 	@RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
-	public String sendMessage(@RequestBody Message message) {
+	public Response sendMessage(@RequestBody Message message) {
 		try {
 			sendMessageToWmqQueue(message);
 		} catch (Exception e) {
 			LOGGER.error("Exception Occurred", e);
-			return FAILED;
+			return new Response(FAILED);
 		}
-		return SUCCESS;
+		return new Response(SUCCESS);
 	}
 
 	private void sendMessageToWmqQueue(final Message message) throws Exception {
