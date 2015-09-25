@@ -36,5 +36,7 @@ ps -ef | grep qmq.listener
 ```
 
 
-Reference : http://sadockobeth.blogspot.in/2014/03/how-to-install-ibm-websphere-mq-75-on.html
-http://www.webspheretools.com/sites/webspheretools.nsf/docs/Create%20Listener%20WebSphere%20MQ!opendocument
+Reference : 
+1. http://sadockobeth.blogspot.in/2014/03/how-to-install-ibm-websphere-mq-75-on.html
+2. http://www.webspheretools.com/sites/webspheretools.nsf/docs/Create%20Listener%20WebSphere%20MQ!opendocument
+3. http://www.webspheretools.com/sites/webspheretools.nsf/docs/WebSphere%20MQ%20queue%20manager%20not%20available!opendocument
