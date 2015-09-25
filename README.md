@@ -8,8 +8,8 @@ crtmqm QMA
 ```
 
 2. Use ```strmqm``` command to start the queue manager QMA as follow:
-```strmqm 
-crtmqm QMA
+```bash
+strmqm QMA
 ```
 
 3. Start MQSC to define a local queue called QUEUE1 then stop MQSC as follows:
