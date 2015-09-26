@@ -73,31 +73,31 @@ Execute ```MQ_INSTALLATION_PATH/bin/setmqinst -i -p MQ_INSTALLATION_PATH``` wher
 [root@arpitaggarwal ~]# /opt/mqm/bin/setmqinst -i -p /opt/mqm/
 ```
 
-** Use ```setmqenv``` command to set various environment variables for a particular installation of WebSphere MQ**
+**Use ```setmqenv``` command to set various environment variables for a particular installation of WebSphere MQ**
 
 ```bash
 [root@arpitaggarwal ~]# su - mqm
 [mqm@arpitaggarwal ~]$ . /opt/mqm/bin/setmqenv -s
 ```
 
-** Use ```dspmqver``` command to check that the environment is set up correctly using dspmqver command as follow:**
+**Use ```dspmqver``` command to check that the environment is set up correctly using dspmqver command as follow:**
 
 ```bash
 [mqm@arpitaggarwal ~]$ dspmqver
 ```
 
-### Use command ```crtmqm``` to create a queue manager called QMA as follows:
+**Use command ```crtmqm``` to create a queue manager called QMA as follows:**
 
 ```bash 
 crtmqm QMA
 ```
 
-** Use ```strmqm``` command to start the queue manager QMA as follow:** 
+**Use ```strmqm``` command to start the queue manager QMA as follow:** 
 ```bash
 strmqm QMA
 ```
 
-** Start MQSC to disable the **```CHLAUTH```** of a Queue Manager(QMGR) then stop MQSC as follows:** 
+**Start MQSC to disable the **```CHLAUTH```** of a Queue Manager(QMGR) then stop MQSC as follows:** 
 
 ```bash 
 runmqsc QMA
@@ -106,7 +106,7 @@ end
 ```
 
 
-** Start MQSC to define a local queue called QUEUE1 then stop MQSC as follows:** 
+**Start MQSC to define a local queue called QUEUE1 then stop MQSC as follows:** 
 
 ```bash 
 runmqsc QMA
@@ -114,7 +114,7 @@ DEFINE QLOCAL (QUEUE1)
 end
 ```
 
-** Start MQSC to define and start a local listener called qmq.listener then stop MQSC as follows:** 
+**Start MQSC to define and start a local listener called qmq.listener then stop MQSC as follows:** 
 
 ```bash
 runmqsc QMA
@@ -123,13 +123,13 @@ start listener(qmq.listener)
 end
 ```
 
-** Check if listener started as follows:** 
+**Check if listener started as follows:** 
 
 ```bash
 ps -ef | grep qmq.listener
 ```
 
-** To recieve the message, Change into the ```MQ_INSTALLATION_PATH/samp/bin``` directory and execute the commands:**
+**To recieve the message, Change into the ```MQ_INSTALLATION_PATH/samp/bin``` directory and execute the commands:**
 
 ```bash
 cd /opt/mqm/samp/bin/
