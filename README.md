@@ -3,7 +3,7 @@ JMS Application to send messages to Websphere MQ using Queue
 
 Download [Websphere MQ V7.5 Trial][1]
 
-[1] : https://www-01.ibm.com/marketing/iwm/iwm/web/reg/pick.do?source=ESD-WSMQ-EVAL&S_TACT=109J84RW&S_CMP=web_ibm_ws_xx_bt_wshome&lang=en_US
+[1]: https://www-01.ibm.com/marketing/iwm/iwm/web/reg/pick.do?source=ESD-WSMQ-EVAL&S_TACT=109J84RW&S_CMP=web_ibm_ws_xx_bt_wshome&lang=en_US
 
 ### Setup WebSphere MQ User and Group
 
