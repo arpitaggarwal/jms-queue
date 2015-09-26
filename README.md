@@ -97,7 +97,7 @@ crtmqm QMA
 strmqm QMA
 ```
 
-**Start MQSC to disable the **```CHLAUTH```** of a Queue Manager(QMGR) then stop MQSC as follows:** 
+**Start MQSC to disable the ```CHLAUTH``` of a Queue Manager(QMGR) then stop MQSC as follows:** 
 
 ```bash 
 runmqsc QMA
