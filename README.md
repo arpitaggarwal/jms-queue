@@ -1,6 +1,71 @@
 # jms-queue
 JMS Application to send messages to Websphere MQ using Queue
 
+Download [Websphere MQ V7.5 Trial][1]
+
+### Setup WebSphere MQ User and Group
+
+Login to the system as user root then create user and group as follow:
+```bash
+[root@arpitaggarwal ~]# groupadd mqm
+[root@arpitaggarwal ~]# useradd -g mqm mqm
+[root@arpitaggarwal ~]# passwd mqm
+Changing password for user mqm.
+New UNIX password:
+Retype new UNIX password:
+passwd: all authentication tokens updated successfully.
+[root@arpitaggarwal ~]#
+```
+
+### Kernel Configuration Parameters
+Open the file "/etc/sysctl.conf" and add below content:
+```bash
+kernel.shmmni = 4096
+kernel.shmall = 2097152
+kernel.shmmax = 268435456
+kernel.sem = 500 256000 250 1024
+net.ipv4.tcp_keepalive_time = 300
+```
+
+### Load these sysctl values immediately, execute command "sysctl -p" as follows:
+```bash
+[root@arpitaggarwal ~]# sysctl -p
+```
+
+### Add the following information to the "/etc/security/limits.conf" file:
+```bash
+mqm              hard    nofile          10240
+mqm              soft    nofile          10240
+```
+
+### Read and Accept License
+Login as root set your current working directory to the installation files. Run the "./mqlicense.sh -accept" command as follows:
+```bash
+[root@arpitaggarwal MQ_7.5.0.2]# ./mqlicense.sh -accept
+```
+
+### Install WebSphere MQ Components
+Log in as root and install below WebSphere MQ Components 
+ MQSeriesRuntime
+    MQSeriesServer
+    MQSeriesClient
+    MQSeriesSDK
+    MQSeriesSample
+    MQSeriesJava
+    MQSeriesMan
+    MQSeriesJRE
+    MQSeriesExplorer
+    
+as follows:
+```bash
+[root@arpitaggarwal MQ_7.5.0.2]# rpm -ivh MQSeriesRuntime-7.5.0-2.x86_64.rpm
+```
+
+   
+    
+    
+
+
 Use command ```crtmqm``` to create a queue manager called QMA as follows:
 
 ```bash 
@@ -64,3 +129,4 @@ References :
 
 4. https://www.ibm.com/developerworks/community/blogs/aimsupport/entry/blocked_by_chlauth_why?lang=en
 
+[1] : https://www-01.ibm.com/marketing/iwm/iwm/web/reg/pick.do?source=ESD-WSMQ-EVAL&S_TACT=109J84RW&S_CMP=web_ibm_ws_xx_bt_wshome&lang=en_US
