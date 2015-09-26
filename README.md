@@ -47,39 +47,56 @@ Login as root set your current working directory to the installation files. Run 
 ```
 
 ### Install WebSphere MQ Components
-Log in as root and install below WebSphere MQ Components 
- MQSeriesRuntime
-    MQSeriesServer
-    MQSeriesClient
-    MQSeriesSDK
-    MQSeriesSample
-    MQSeriesJava
-    MQSeriesMan
-    MQSeriesJRE
-    MQSeriesExplorer
+Log in as root and install below WebSphere MQ Components: 
+    - MQSeriesRuntime
+    - MQSeriesServer
+    - MQSeriesClient
+    - MQSeriesSDK
+    - MQSeriesSample
+    - MQSeriesJava
+    - MQSeriesMan
+    - MQSeriesJRE
+    - MQSeriesExplorer
     
+   
 as follows:
+
 ```bash
 [root@arpitaggarwal MQ_7.5.0.2]# rpm -ivh MQSeriesRuntime-7.5.0-2.x86_64.rpm
 ```
 
-   
-    
-    
+### Post Installations
+Execute MQ_INSTALLATION_PATH/bin/setmqinst -i -p MQ_INSTALLATION_PATH where MQ_INSTALLATION_PATH represents the directory where WebSphere MQ is installed as follows:
 
+```bash
+[root@arpitaggarwal ~]# /opt/mqm/bin/setmqinst -i -p /opt/mqm/
+```
 
-Use command ```crtmqm``` to create a queue manager called QMA as follows:
+# Use ```setmqenv``` command to set various environment variables for a particular installation of WebSphere MQ
+
+```bash
+[root@arpitaggarwal ~]# su - mqm
+[mqm@arpitaggarwal ~]$ . /opt/mqm/bin/setmqenv -s
+```
+
+# Use ```dspmqver``` command to check that the environment is set up correctly using dspmqver command as follow:
+
+```bash
+[mqm@arpitaggarwal ~]$ dspmqver
+```
+
+# Use command ```crtmqm``` to create a queue manager called QMA as follows:
 
 ```bash 
 crtmqm QMA
 ```
 
-Use ```strmqm``` command to start the queue manager QMA as follow:
+# Use ```strmqm``` command to start the queue manager QMA as follow:
 ```bash
 strmqm QMA
 ```
 
-Start MQSC to disable the **```CHLAUTH```** of a Queue Manager(QMGR) then stop MQSC as follows:
+# Start MQSC to disable the **```CHLAUTH```** of a Queue Manager(QMGR) then stop MQSC as follows:
 
 ```bash 
 runmqsc QMA
@@ -88,7 +105,7 @@ end
 ```
 
 
-Start MQSC to define a local queue called QUEUE1 then stop MQSC as follows:
+# Start MQSC to define a local queue called QUEUE1 then stop MQSC as follows:
 
 ```bash 
 runmqsc QMA
@@ -96,7 +113,7 @@ DEFINE QLOCAL (QUEUE1)
 end
 ```
 
-Start MQSC to define and start a local listener called qmq.listener then stop MQSC as follows:
+# Start MQSC to define and start a local listener called qmq.listener then stop MQSC as follows:
 
 ```bash
 runmqsc QMA
@@ -105,30 +122,28 @@ start listener(qmq.listener)
 end
 ```
 
-Check if listener started as follows:
+### Check if listener started as follows:
 
 ```bash
 ps -ef | grep qmq.listener
 ```
 
-To get the message, Change into the MQ_INSTALLATION_PATH/samp/bin directory and execute the commands:
+# To recieve the message, Change into the MQ_INSTALLATION_PATH/samp/bin directory and execute the commands:
 
 ```bash
 cd /opt/mqm/samp/bin/
 ./amqsget QUEUE1 QMA
 ```
 
-
+**Source** : http://sadockobeth.blogspot.in/2014/03/how-to-install-ibm-websphere-mq-75-on.html
 
 References : 
 
-1. http://sadockobeth.blogspot.in/2014/03/how-to-install-ibm-websphere-mq-75-on.html
+1. http://www.webspheretools.com/sites/webspheretools.nsf/docs/Create%20Listener%20WebSphere%20MQ!opendocument
 
-2. http://www.webspheretools.com/sites/webspheretools.nsf/docs/Create%20Listener%20WebSphere%20MQ!opendocument
-
-3. http://www.webspheretools.com/sites/webspheretools.nsf/docs/WebSphere%20MQ%20queue%20manager%20not%20available!opendocument
+2. http://www.webspheretools.com/sites/webspheretools.nsf/docs/WebSphere%20MQ%20queue%20manager%20not%20available!opendocument
 
 
-4. https://www.ibm.com/developerworks/community/blogs/aimsupport/entry/blocked_by_chlauth_why?lang=en
+3. https://www.ibm.com/developerworks/community/blogs/aimsupport/entry/blocked_by_chlauth_why?lang=en
 
 
