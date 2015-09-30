@@ -68,7 +68,7 @@ as follows:
 
 ### Post Installations
 
-Create lib64 directory inside usr directory, as follows:
+Create ```lib64``` directory inside ```usr``` directory, as follows:
 ```bash 
 cd /usr/
 mkdir lib64
