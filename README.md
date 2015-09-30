@@ -71,7 +71,7 @@ as follows:
 Create ```lib64``` directory inside ```usr``` directory, as follows:
 ```bash 
 [root@arpitaggarwal ~] cd /usr/
-[root@arpitaggarwal:/usr] mkdir lib64
+[root@arpitaggarwal usr] mkdir lib64
 ```
 
 Execute ```MQ_INSTALLATION_PATH/bin/setmqinst -i -p MQ_INSTALLATION_PATH``` where MQ_INSTALLATION_PATH represents the directory where WebSphere MQ is installed, as follows:
